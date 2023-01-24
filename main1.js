@@ -5,7 +5,7 @@ const burguerMenu = document.querySelector('.menu');
 const mobilMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -14,10 +14,10 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
 function toggleDesktopMenu(){
-    const IsAsideClosed = aside.classList.contains('inactive');
+    const IsAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!IsAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
@@ -25,10 +25,10 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    const IsAsideClosed = aside.classList.contains('inactive');
+    const IsAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!IsAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobilMenu.classList.toggle('inactive'); //Con el toggle se pone o se quita la clase inactive
@@ -41,7 +41,7 @@ function toggleCarritoAside(){
         mobilMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
+    shoppingCartContainer.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
 }
 
 const productList = [];
@@ -75,21 +75,6 @@ productList.push({
     price: 2100,
     image: 'https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 })
-
-/*
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-    <div>
-        <p>$120,00</p>
-        <p>Bike</p>
-    </div>
-    <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-    </figure>
-    </div>
-</div>
-*/
 
 function renderProducts(arr){
     for (product of arr){
