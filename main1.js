@@ -8,22 +8,35 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
-burguerMenu.addEventListener('click', toggleMovilMenu);
+burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
 function toggleDesktopMenu(){
+    const IsAsideClosed = aside.classList.contains('inactive');
+
+    if (!IsAsideClosed){
+        aside.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
+
 }
 
-function toggleMovilMenu(){
-    mobilMenu.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
+function toggleMobileMenu(){
+    const IsAsideClosed = aside.classList.contains('inactive');
+
+    if (!IsAsideClosed){
+        aside.classList.add('inactive');
+    }
+
+    mobilMenu.classList.toggle('inactive'); //Con el toggle se pone o se quita la clase inactive
 }
 
 function toggleCarritoAside(){
-    const IsMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const IsMobileMenuClosed = mobilMenu.classList.contains('inactive');
 
     if (!IsMobileMenuClosed){
-        mobileMenu.classList.add('inactive');
+        mobilMenu.classList.add('inactive');
     }
 
     aside.classList.toggle('inactive') //Con el toggle se pone o se quita la clase inactive
